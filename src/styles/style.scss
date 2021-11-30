@@ -1,0 +1,46 @@
+@use 'vars';
+@use 'mixins';
+@use "sass:math";
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'VT323', monospace;
+  color: white;
+  font-size: 100%;
+}
+
+body {
+  @include mixins.flexcenter;
+  padding: 5px;
+  background-color: vars.$background;
+  height: 100vh;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  @include mixins.flexcenter(center, center, column);
+
+  .header {
+    margin-top: 30px;
+    font-size: vars.$headerSize;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    .header-span {
+        font-size: math.div(vars.$headerSize, 9);
+    }
+  }
+}
+
+.ui-button {
+  max-width: 100px;
+  background-color: vars.$orange;
+  font-size: 2em;
+  padding: 0 15px;
+  font-weight: bold;
+}
